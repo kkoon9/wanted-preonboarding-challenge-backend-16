@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `performance_seat_infos`
 CREATE TABLE IF NOT EXISTS `reservations`
 (
     `id`                        BIGINT                 NOT NULL AUTO_INCREMENT,
-    `performance_seat_infos_id` BIGINT                 NOT NULL COMMENT '공연전시ID',
+    `performance_seat_info_id` BIGINT                 NOT NULL COMMENT '공연전시ID',
     `user_id`                   BIGINT                 NOT NULL COMMENT '유저ID',
     `created_at`                DATETIME DEFAULT NOW() NOT NULL,
     `updated_at`                DATETIME DEFAULT NOW() NOT NUll,
