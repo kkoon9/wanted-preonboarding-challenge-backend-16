@@ -9,6 +9,7 @@ import java.time.LocalTime;
 
 @Getter
 public class PerformanceResponseDto {
+    private Long id;
     private String name;
     private Integer round;
     private LocalDate startDate;
@@ -16,7 +17,8 @@ public class PerformanceResponseDto {
     private Boolean canReserve;
 
     @Builder
-    public PerformanceResponseDto(String name, Integer round, LocalDate startDate, LocalTime startTime, Boolean canReserve) {
+    public PerformanceResponseDto(Long id, String name, Integer round, LocalDate startDate, LocalTime startTime, Boolean canReserve) {
+        this.id = id;
         this.name = name;
         this.round = round;
         this.startDate = startDate;
@@ -26,6 +28,7 @@ public class PerformanceResponseDto {
 
     public static PerformanceResponseDto of(Performance performance) {
         return PerformanceResponseDto.builder()
+                .id(performance.getId())
                 .name(performance.getName())
                 .round(performance.getRound())
                 .startDate(performance.getStartDate())
