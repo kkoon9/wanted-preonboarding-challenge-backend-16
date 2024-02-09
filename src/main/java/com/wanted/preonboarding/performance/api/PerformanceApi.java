@@ -1,9 +1,11 @@
 package com.wanted.preonboarding.performance.api;
 
 import com.wanted.preonboarding.performance.dto.PerformanceResponseDto;
+import com.wanted.preonboarding.performance.dto.PerformanceSeatResponseDto;
 import com.wanted.preonboarding.performance.service.PerformanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,5 +23,13 @@ public class PerformanceApi {
             @RequestParam final Boolean canReserve
     ) {
         return performanceService.getPerformances(canReserve);
+    }
+
+    @GetMapping("/{performanceId}")
+    public List<PerformanceSeatResponseDto> getPerformanceDetail(
+            @PathVariable(value = "performanceId") final Long performanceId,
+            @RequestParam final Boolean canReserve
+    ) {
+        return performanceService.getPerformance(performanceId, canReserve);
     }
 }
