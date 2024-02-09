@@ -6,7 +6,6 @@ import com.wanted.preonboarding.performance.repository.PerformanceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class PerformanceService {
     private final PerformanceRepository performanceRepository;
-    public List<PerformanceResponseDto> getCanReversePerformances(final Boolean canReserve) {
+    public List<PerformanceResponseDto> getPerformances(final Boolean canReserve) {
         List<Performance> performances = performanceRepository.findByCanReserve(canReserve);
         return performances.stream()
                 .map(PerformanceResponseDto::of)
