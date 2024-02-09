@@ -1,4 +1,4 @@
-package com.wanted.preonboarding.performance;
+package com.wanted.preonboarding.performance.domain;
 
 import com.wanted.preonboarding.global.common.BaseEntity;
 import jakarta.persistence.Column;
